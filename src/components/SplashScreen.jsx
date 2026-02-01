@@ -4,15 +4,15 @@ const SplashScreen = ({ onComplete }) => {
   const [showSkip, setShowSkip] = useState(false);
 
   useEffect(() => {
-    // 1.5秒后显示跳过按钮
+    // 0.5秒后显示跳过按钮
     const skipTimer = setTimeout(() => {
       setShowSkip(true);
-    }, 1500);
+    }, 500);
 
-    // 5秒后自动完成开屏
+    // 1.5秒后自动完成开屏
     const completeTimer = setTimeout(() => {
       onComplete();
-    }, 5000);
+    }, 1500);
 
     return () => {
       clearTimeout(skipTimer);
@@ -26,16 +26,22 @@ const SplashScreen = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center">
-      {/* 开屏视频 */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/smvideo.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-      />
+      {/* 开屏视频容器 */}
+      <div className="absolute inset-0 w-full h-full bg-black">
+        <video
+          className="w-full h-full object-cover"
+          src="/smvideo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          onError={(e) => {
+            // 视频加载失败时隐藏视频元素
+            e.target.style.display = 'none';
+          }}
+        />
+      </div>
 
       {/* 半透明黑色覆盖层，增强文字可读性 */}
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>

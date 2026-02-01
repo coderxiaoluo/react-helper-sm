@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FeatureCard from './FeatureCard';
 import Introduction from './Introduction';
+import ViewportAnimated from './ViewportAnimated';
 
 const MainContent = () => {
   const navigate = useNavigate();
@@ -106,13 +107,20 @@ const MainContent = () => {
       <Introduction />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {features.map((feature, index) => (
-          <div
+          <ViewportAnimated
             key={index}
-            onClick={() => handleCardClick(feature.route, feature.isExternal)}
+            delay={index * 100}
+            threshold={0.1}
+            direction={index % 2 === 0 ? 'left' : 'right'}
             className="cursor-pointer"
           >
-            <FeatureCard {...feature} />
-          </div>
+            <div
+              onClick={() => handleCardClick(feature.route, feature.isExternal)}
+              className="w-full"
+            >
+              <FeatureCard {...feature} />
+            </div>
+          </ViewportAnimated>
         ))}
       </div>
     </main>

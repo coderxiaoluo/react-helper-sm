@@ -1,11 +1,12 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8 mt-12">
       <div className="container mx-auto px-4">
-        <div className="text-center">
+        <AnimatedSection direction="left" delay={0} className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Heart className="h-5 w-5 text-red-500" />
             <span className="text-gray-300">
@@ -21,7 +22,7 @@ const Footer = () => {
           <a href="https://github.com/coderxiaoluo/react-helper-sm" className="text-gray-500 text-xs mt-2">
             github :https://github.com/coderxiaoluo/react-helper-sm
           </a>
-        </div>
+        </AnimatedSection>
       </div>
     </footer>
   );

@@ -34,10 +34,10 @@ const Navigation = () => {
             <div
               key={index}
               onClick={() => handleNavigation(item.href, item.external)}
-              className="flex flex-col items-center p-3 rounded-lg hover:bg-red-50 transition-colors duration-200 group cursor-pointer"
+              className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-300 group cursor-pointer transform hover:-translate-y-1"
             >
-              <item.icon className="h-6 w-6 text-red-600 mb-2 group-hover:text-red-800" />
-              <span className="text-xs text-center text-gray-700 group-hover:text-red-800 font-medium">
+              <item.icon className="h-6 w-6 text-blue-600 mb-2 group-hover:text-blue-800 transition-colors duration-300" />
+              <span className="text-xs text-center text-gray-700 group-hover:text-blue-800 font-medium transition-colors duration-300">
                 {item.text}
               </span>
             </div>

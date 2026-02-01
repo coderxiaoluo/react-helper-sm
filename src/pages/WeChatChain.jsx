@@ -19,7 +19,7 @@ const WeChatChain = () => {
     try {
       const data = parseWeChatChainData(rawData);
       setParsedData(data);
-      
+
       // 分析数据
       analyzeData(data);
     } catch (error) {
@@ -125,7 +125,7 @@ const WeChatChain = () => {
 
   const generateMarkdownReport = () => {
     const { players, professionStats, specialNeeds, professionGroups } = analysisResult;
-    
+
     let markdown = '### 玩家清单\n';
     markdown += '| ID | 职业 | 备注 |\n';
     markdown += '|-----|------|------|\n';
@@ -201,7 +201,7 @@ const WeChatChain = () => {
             <textarea
               value={rawData}
               onChange={(e) => setRawData(e.target.value)}
-              placeholder="请粘贴微信接龙数据，格式如：&#10;玩家001 长安 法师 已绑定&#10;玩家002 洛阳 战士 未绑定"
+              placeholder="请粘贴微信接龙数据，格式如：&#10;玩家001 小菠萝 碎梦 已绑定&#10;玩家002 小波萝2 龙吟 未绑定"
               className="w-full h-32 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
             <p className="text-xs text-gray-500 mt-1">
@@ -228,12 +228,11 @@ const WeChatChain = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {item.id}
                       </td>
-                      <td 
-                        className={`px-6 py-4 whitespace-nowrap text-sm font-medium cursor-pointer transition-colors duration-200 ${
-                          copiedId === index 
-                            ? 'text-green-600 bg-green-50' 
-                            : 'text-blue-600 hover:bg-blue-50'
-                        }`}
+                      <td
+                        className={`px-6 py-4 whitespace-nowrap text-sm font-medium cursor-pointer transition-colors duration-200 ${copiedId === index
+                          ? 'text-green-600 bg-green-50'
+                          : 'text-blue-600 hover:bg-blue-50'
+                          }`}
                         onDoubleClick={() => handleCopyId(item.playerId, index)}
                         title="双击复制ID"
                       >
@@ -253,11 +252,10 @@ const WeChatChain = () => {
                         {item.profession}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                          item.yixianqian === '已绑定' 
-                            ? 'bg-green-100 text-green-800' 
-                            : 'bg-yellow-100 text-yellow-800'
-                        }`}>
+                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${item.yixianqian === '已绑定'
+                          ? 'bg-green-100 text-green-800'
+                          : 'bg-yellow-100 text-yellow-800'
+                          }`}>
                           {item.yixianqian}
                         </span>
                       </td>
