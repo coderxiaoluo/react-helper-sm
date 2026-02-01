@@ -18,9 +18,9 @@ const Footer = () => {
           <p className="text-gray-500 text-xs mt-2">
             本站为非营利性工具网站，所有数据仅供参考
           </p>
-          <p className="text-gray-500 text-xs mt-2">
-            代做联系1195646651@qq.com
-          </p>
+          <a href="https://github.com/coderxiaoluo/react-helper-sm" className="text-gray-500 text-xs mt-2">
+            github :https://github.com/coderxiaoluo/react-helper-sm
+          </a>
         </div>
       </div>
     </footer>

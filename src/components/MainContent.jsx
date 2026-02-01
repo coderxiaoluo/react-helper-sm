@@ -106,8 +106,8 @@ const MainContent = () => {
       <Introduction />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {features.map((feature, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             onClick={() => handleCardClick(feature.route, feature.isExternal)}
             className="cursor-pointer"
           >
