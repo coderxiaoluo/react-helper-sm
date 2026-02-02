@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Users, BarChart3, FileText, Shield, Target, Calculator, MessageSquare, Filter, BookOpen, Zap } from 'lucide-react';
+import { Grid, GridItem } from 'react-vant';
+import { Users, BarChart3, FileText, Shield, Target, Calculator, Filter, BookOpen, Zap } from 'lucide-react';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -29,20 +30,22 @@ const Navigation = () => {
   return (
     <nav className="bg-white shadow-md py-4">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 gap-4">
+        <Grid square columns={2} md={{ columns: 4 }} lg={{ columns: 5 }} gap={8}>
           {navItems.map((item, index) => (
-            <div
+            <GridItem
               key={index}
               onClick={() => handleNavigation(item.href, item.external)}
               className="flex flex-col items-center p-3 rounded-lg hover:bg-[#E8F0F2] transition-colors duration-300 group cursor-pointer transform hover:-translate-y-1"
             >
-              <item.icon className="h-6 w-6 text-[#2C4B5E] mb-2 group-hover:text-[#4A6A7C] transition-colors duration-300" />
-              <span className="text-xs text-center text-[#1A202C] group-hover:text-[#2C4B5E] font-medium transition-colors duration-300">
-                {item.text}
-              </span>
-            </div>
+              <div className="flex flex-col items-center">
+                <item.icon className="h-6 w-6 text-blue-600 mb-2 group-hover:text-blue-700 transition-colors duration-300" />
+                <span className="text-xs text-center text-[#1A202C] group-hover:text-[#2C4B5E] font-medium transition-colors duration-300">
+                  {item.text}
+                </span>
+              </div>
+            </GridItem>
           ))}
-        </div>
+        </Grid>
       </div>
     </nav>
   );
