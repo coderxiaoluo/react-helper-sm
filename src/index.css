@@ -4,67 +4,103 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 38 23% 95%;
+    /* #F5F2EB 浅米色，古卷质感 */
+    --foreground: 215 28% 17%;
+    /* #1A202C 深墨色 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
+    --card-foreground: 215 28% 17%;
+    /* #1A202C 深墨色 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
+    --popover-foreground: 215 28% 17%;
+    /* #1A202C 深墨色 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 199 28% 28%;
+    /* #2C4B5E 主色调，黛色 */
+    --primary-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 199 28% 40%;
+    /* #4A6A7C 同色系浅黛青，功能按钮色 */
+    --secondary-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 38 15% 90%;
+    /* 浅米色变体 */
+    --muted-foreground: 215 28% 17%;
+    /* #1A202C 深墨色 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 199 28% 40%;
+    /* #4A6A7C 同色系浅黛青 */
+    --accent-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --destructive: 195 65% 58%;
-    /* 修改主题颜色：原为 0 84.2% 60.2% (红色)，现为 195 65% 58% (蓝色 #4db8dc) */
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 199 28% 28%;
+    /* #2C4B5E 主色调 */
+    --destructive-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 199 28% 70%;
+    /* 主色调变体 */
+    --input: 199 28% 70%;
+    /* 主色调变体 */
+    --ring: 199 28% 28%;
+    /* #2C4B5E 主色调 */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 215 28% 17%;
+    /* #1A202C 深墨色 */
+    --foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 28% 17%;
+    /* #1A202C 深墨色 */
+    --card-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 28% 17%;
+    /* #1A202C 深墨色 */
+    --popover-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
+    --primary-foreground: 199 28% 28%;
+    /* #2C4B5E 主色调 */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 199 28% 35%;
+    /* 主色调暗色变体 */
+    --secondary-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 28% 25%;
+    /* 深墨色变体 */
+    --muted-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 199 28% 35%;
+    /* 主色调暗色变体 */
+    --accent-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --destructive: 195 65% 40%;
-    /* 修改主题颜色：原为 0 62.8% 30.6% (红色)，现为 195 65% 40% (蓝色 #4db8dc 的暗色版本) */
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 199 28% 35%;
+    /* 主色调暗色变体 */
+    --destructive-foreground: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 199 28% 35%;
+    /* 主色调暗色变体 */
+    --input: 199 28% 35%;
+    /* 主色调暗色变体 */
+    --ring: 38 23% 95%;
+    /* #F5F2EB 浅米色 */
   }
 }
 

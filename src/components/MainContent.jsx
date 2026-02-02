@@ -82,12 +82,12 @@ const MainContent = () => {
       isExternal: false
     },
     {
-      title: '留言板',
-      description: '方便使用者留言和建议',
-      icon: '📨',
-      color: 'bg-pink-50 border-pink-200',
-      route: 'https://chat.nestboy.com/kefu.html', // 外部链接
-      isExternal: true
+      title: '帮会成员功能',
+      description: '微信帮会成员筛选和管理',
+      icon: '👥',
+      color: 'bg-blue-50 border-blue-200',
+      route: '/members', // 内部路由
+      isExternal: false
     }
   ];
 

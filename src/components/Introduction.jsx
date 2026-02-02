@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Gamepad2, Users, TrendingUp, X } from 'lucide-react';
+import { Image } from 'react-vant';
 import AnimatedSection from './AnimatedSection';
 
 const Introduction = () => {
@@ -20,9 +21,10 @@ const Introduction = () => {
           逆水寒手游-武林盟主.碎梦
         </h2>
         <div className="flex flex-col items-center justify-center mb-6">
-          <img
-            src="/sm.png"
+          <Image
+            src="/images/sm.png"
             alt="群聊二维码"
+            lazyload
             className="max-w-full h-auto max-h-64 cursor-pointer hover:opacity-90 transition-opacity duration-200"
             onClick={handleQrCodeClick}
           />
@@ -44,7 +46,7 @@ const Introduction = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src="/sm.png"
+              src="/images/sm.png"
               alt="群聊二维码放大"
               className="max-w-full max-h-[90vh] object-contain"
             />
@@ -60,25 +62,25 @@ const Introduction = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <AnimatedSection direction="left" delay={100} className="text-center p-4">
-          <Gamepad2 className="h-12 w-12 text-blue-600 mx-auto mb-3" />
-          <h3 className="font-semibold text-gray-800 mb-2">专业游戏工具</h3>
-          <p className="text-sm text-gray-600">
+          <Gamepad2 className="h-12 w-12 text-[#2C4B5E] mx-auto mb-3" />
+          <h3 className="font-semibold text-[#1A202C] mb-2">专业游戏工具</h3>
+          <p className="text-sm text-[#1A202C] opacity-80">
             针对逆水寒手游特色打造的专业分析工具
           </p>
         </AnimatedSection>
 
         <AnimatedSection direction="left" delay={200} className="text-center p-4">
-          <Users className="h-12 w-12 text-blue-600 mx-auto mb-3" />
-          <h3 className="font-semibold text-gray-800 mb-2">帮会管理</h3>
-          <p className="text-sm text-gray-600">
+          <Users className="h-12 w-12 text-[#2C4B5E] mx-auto mb-3" />
+          <h3 className="font-semibold text-[#1A202C] mb-2">帮会管理</h3>
+          <p className="text-sm text-[#1A202C] opacity-80">
             完善的帮会成员管理和战斗组织功能
           </p>
         </AnimatedSection>
 
         <AnimatedSection direction="left" delay={300} className="text-center p-4">
-          <TrendingUp className="h-12 w-12 text-blue-600 mx-auto mb-3" />
-          <h3 className="font-semibold text-gray-800 mb-2">数据分析</h3>
-          <p className="text-sm text-gray-600">
+          <TrendingUp className="h-12 w-12 text-[#2C4B5E] mx-auto mb-3" />
+          <h3 className="font-semibold text-[#1A202C] mb-2">数据分析</h3>
+          <p className="text-sm text-[#1A202C] opacity-80">
             深度的游戏数据分析和收益计算
           </p>
         </AnimatedSection>
