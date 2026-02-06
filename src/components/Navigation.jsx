@@ -145,7 +145,7 @@ const Navigation = () => {
       <nav style={{
         position: 'relative',
         padding: '30px 0 60px',
-        background: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDEwMHYxMDBIMHoiLz48L3N2Zz4=') #3E3E3E, radial-gradient(rgba(0,0,0,0.2), transparent)`,
+        background: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDEwMHYxMDBIMHoiLz48L3N2Zz4=') #2F4F4F, radial-gradient(rgba(0,0,0,0.2), transparent)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         overflow: 'hidden',
@@ -162,7 +162,7 @@ const Navigation = () => {
           height: '0',
           borderLeft: '20px solid transparent',
           borderRight: '20px solid transparent',
-          borderBottom: '20px solid #3E3E3E',
+          borderBottom: '20px solid #2F4F4F',
           zIndex: 2
         }}></div>
         {/* 顶部逆水寒水墨插画 */}
@@ -191,10 +191,10 @@ const Navigation = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     textAlign: 'center',
-                    background: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjEiIGQ9Ik0zMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptLTMwIDBjLTYuNjIgMC0xMi01LjM4LTEyLTEyIDAgNi42MiA1LjM4IDEyIDEyIDEyIDYuNjIgMCAxMi01LjM4IDEyLTEyIDAtNi42Mi01LjM4LTEyLTEyLTEyeiIvPjwvZz48L3N2Zz4=') linear-gradient(135deg, #B5834C, #D4AF37)`,
+                    background: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjEiIGQ9Ik0zMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptLTMwIDBjLTYuNjIgMC0xMi01LjM4LTEyLTEyIDAgNi42MiA1LjM4IDEyIDEyIDEyIDYuNjIgMCAxMi01LjM4IDEyLTEyIDAtNi42Mi01LjM4LTEyLTEyLTEyeiIvPjwvZz48L3N2Zz4=') linear-gradient(135deg, #2F4F4F, #556B2F)`,
                     borderRadius: '16px 8px 16px 8px',
                     clipPath: 'polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%)',
-                    border: '1px solid #B5834C',
+                    border: '1px solid #556B2F',
                     boxShadow: '0 4px 8px rgba(26, 26, 26, 0.3)',
                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                     cursor: 'pointer',
@@ -205,7 +205,7 @@ const Navigation = () => {
                   }}
                   onMouseEnter={(e) => {
                     // Hover效果：发光+上浮
-                    e.currentTarget.style.boxShadow = '0 0 12px rgba(212, 175, 55, 0.4)';
+                    e.currentTarget.style.boxShadow = '0 0 12px rgba(139, 195, 74, 0.4)';
                     e.currentTarget.style.transform = 'translateY(-3px)';
                   }}
                   onMouseLeave={(e) => {
@@ -236,10 +236,10 @@ const Navigation = () => {
                   {/* 图标 */}
                   <div
                     style={{
-                      color: '#D4AF37',
+                      color: '#8FBC8F',
                       marginBottom: '8px',
                       flexShrink: 0,
-                      filter: 'drop-shadow(0 0 2px rgba(212, 175, 55, 0.4))',
+                      filter: 'drop-shadow(0 0 2px rgba(143, 188, 143, 0.4))',
                       position: 'relative',
                       zIndex: 3
                     }}
@@ -249,7 +249,7 @@ const Navigation = () => {
                   {/* 文字 */}
                   <span
                     style={{
-                      color: '#D4AF37',
+                      color: '#8FBC8F',
                       fontSize: '14px',
                       lineHeight: '1.5',
                       fontFamily: "'Wei Bei', 'STKaiti', serif",

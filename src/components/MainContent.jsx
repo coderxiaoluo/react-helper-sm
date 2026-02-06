@@ -132,7 +132,8 @@ const MainContent = () => {
                   height: '200px',
                   minHeight: '200px',
                   maxHeight: '200px',
-                  width: '100%'
+                  width: '100%',
+                  clipPath: 'none'
                 }}
               >
                 <div className="ancient-card-content">
