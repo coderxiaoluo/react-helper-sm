@@ -1,14 +1,18 @@
-import { HomeIcon, Users, BarChart3, FileText, Shield, Target, Calculator, MessageSquare, Filter, BookOpen, Zap } from "lucide-react";
-import Index from "./pages/Index.jsx";
-import MemberMatchGuide from "./pages/MemberMatchGuide.jsx";
-import Members from "./pages/Members.jsx";
-import League from "./pages/League.jsx";
-import WeChatChain from "./pages/WeChatChain.jsx";
-import Flag from "./pages/Flag.jsx";
-import Defense from "./pages/Defense.jsx";
-import Panel from "./pages/Panel.jsx";
-import Skills from "./pages/Skills.jsx";
-import NeigongCalculator from "./pages/NeigongCalculator.jsx";
+import { HomeIcon, Users, BarChart3, FileText, Shield, Target, Calculator, MessageSquare, Filter, BookOpen, Zap, Building2 } from "lucide-react";
+import { lazy } from "react";
+
+// 代码分割，按需加载页面组件
+const Index = lazy(() => import("./pages/Index.jsx"));
+const MemberMatchGuide = lazy(() => import("./pages/MemberMatchGuide.jsx"));
+const Members = lazy(() => import("./pages/Members.jsx"));
+const League = lazy(() => import("./pages/League.jsx"));
+const WeChatChain = lazy(() => import("./pages/WeChatChain.jsx"));
+const Flag = lazy(() => import("./pages/Flag.jsx"));
+const Defense = lazy(() => import("./pages/Defense.jsx"));
+const Panel = lazy(() => import("./pages/Panel.jsx"));
+const Skills = lazy(() => import("./pages/Skills.jsx"));
+const NeigongCalculator = lazy(() => import("./pages/NeigongCalculator.jsx"));
+const Guilds = lazy(() => import("./pages/Guilds.jsx"));
 
 /**
  * Central place for defining the navigation items. Used for navigation components and routing.
@@ -19,6 +23,12 @@ export const navItems = [
     to: "/",
     icon: <HomeIcon className="h-4 w-4" />,
     page: <Index />,
+  },
+  {
+    title: "帮会展示",
+    to: "/guilds",
+    icon: <Building2 className="h-4 w-4" />,
+    page: <Guilds />,
   },
   {
     title: "帮战微信接龙筛选",

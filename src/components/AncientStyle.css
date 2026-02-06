@@ -1,0 +1,335 @@
+/* 古风样式模块 - 逆水寒武侠木牌质感 */
+
+/* 容器样式 */
+.ancient-grid-container {
+  position: relative;
+  padding: 10px;
+  background-color: #F5F0E6;
+  background-image:
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDEwMHYxMDBIMHoiLz48L3N2Zz4='),
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjEiIGQ9Ik0zMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptLTMwIDBjLTYuNjIgMC0xMi01LjM4LTEyLTEyIDAgNi42MiA1LjM4IDEyIDEyIDEyIDYuNjIgMCAxMi01LjM4IDEyLTEyIDAtNi42Mi01LjM4LTEyLTEyLTEyeiIvPjwvZz48L3N2Zz4=');
+  background-size: cover, 400px;
+  background-position: center, center;
+  background-blend-mode: overlay;
+  border-radius: 8px;
+}
+
+/* 网格布局 */
+.ancient-grid {
+  position: relative;
+}
+
+/* 卡片样式 - 逆水寒木牌质感 */
+.ancient-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(135deg, #8B4513, #654321);
+  border: 2px solid #CD853F;
+  border-radius: 8px;
+  box-shadow:
+    0 4px 12px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 215, 0, 0.2);
+  min-height: 180px;
+}
+
+/* 木牌纹理 */
+.ancient-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjEiIGQ9Ik0zMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptMCAzMGMtNi42MiAwLTEyLTUuMzgtMTItMTIzMCA2LjYyIDAgMTIgNS4zOCAxMiAxMnptLTMwIDBjLTYuNjIgMC0xMi01LjM4LTEyLTEyIDAgNi42MiA1LjM4IDEyIDEyIDEyIDYuNjIgMCAxMi01LjM4IDEyLTEyIDAtNi42Mi01LjM4LTEyLTEyLTEyeiIvPjwvZz48L3N2Zz4='),
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  background-size: 200px, cover, cover;
+  background-blend-mode: overlay, overlay, overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 铜钉边框 */
+.ancient-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 铜钉装饰 */
+.ancient-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ancient-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(205, 133, 63, 0.8) 0%, rgba(205, 133, 63, 0.4) 50%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(205, 133, 63, 0.8) 0%, rgba(205, 133, 63, 0.4) 50%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(205, 133, 63, 0.8) 0%, rgba(205, 133, 63, 0.4) 50%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(205, 133, 63, 0.8) 0%, rgba(205, 133, 63, 0.4) 50%, transparent 50%);
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 卡片悬停效果 */
+.ancient-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 8px 20px rgba(139, 69, 19, 0.6),
+    inset 0 1px 0 rgba(255, 215, 0, 0.4);
+  border-color: #FFD700;
+  background: linear-gradient(135deg, #9E5A29, #7A522A);
+}
+
+/* 卡片点击效果 */
+.ancient-card:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow:
+    0 4px 12px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 215, 0, 0.2);
+}
+
+/* 卡片内容 */
+.ancient-card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* 卡片图标 */
+.ancient-icon {
+  margin-bottom: 12px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 4;
+}
+
+.ancient-card:hover .ancient-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* 卡片标题 */
+.ancient-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFD700;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 4;
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 215, 0, 0.3);
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+}
+
+.ancient-card:hover .ancient-title {
+  color: #FFE4B5;
+  transform: translateY(-2px);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* 卡片描述 */
+.ancient-desc {
+  font-size: 12px;
+  color: #F5DEB3;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 4;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  font-family: 'Noto Serif SC', serif;
+}
+
+.ancient-card:hover .ancient-desc {
+  color: #FFFAF0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .ancient-grid-container {
+    padding: 5px;
+  }
+
+  .ancient-card {
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 180px !important;
+  }
+
+  .ancient-card-content {
+    padding: 16px;
+  }
+
+  .ancient-title {
+    font-size: 14px;
+  }
+
+  .ancient-desc {
+    font-size: 11px;
+  }
+
+  .ancient-icon {
+    margin-bottom: 10px;
+  }
+
+  .ancient-icon svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* 小屏移动端适配 */
+@media (max-width: 480px) {
+  .ancient-card {
+    height: 160px !important;
+    min-height: 160px !important;
+    max-height: 160px !important;
+  }
+
+  .ancient-card-content {
+    padding: 12px;
+  }
+
+  .ancient-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .ancient-desc {
+    font-size: 10px;
+  }
+
+  .ancient-icon {
+    margin-bottom: 8px;
+  }
+
+  .ancient-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+
+/* 古风色彩主题 */
+.ancient-theme-blue {
+  background: linear-gradient(135deg, #483D8B, #191970) !important;
+  border-color: #6A5ACD !important;
+}
+
+.ancient-theme-blue:hover {
+  border-color: #836FFF !important;
+  background: linear-gradient(135deg, #5D4ED8, #2A2A9E) !important;
+}
+
+.ancient-theme-green {
+  background: linear-gradient(135deg, #2F4F2F, #228B22) !important;
+  border-color: #556B2F !important;
+}
+
+.ancient-theme-green:hover {
+  border-color: #6B8E23 !important;
+  background: linear-gradient(135deg, #3A6B3A, #2E8B57) !important;
+}
+
+.ancient-theme-purple {
+  background: linear-gradient(135deg, #4B0082, #8A2BE2) !important;
+  border-color: #9370DB !important;
+}
+
+.ancient-theme-purple:hover {
+  border-color: #BA55D3 !important;
+  background: linear-gradient(135deg, #6A0DAD, #9400D3) !important;
+}
+
+.ancient-theme-red {
+  background: linear-gradient(135deg, #8B0000, #A52A2A) !important;
+  border-color: #CD5C5C !important;
+}
+
+.ancient-theme-red:hover {
+  border-color: #F08080 !important;
+  background: linear-gradient(135deg, #A02323, #B83B3B) !important;
+}
+
+.ancient-theme-orange {
+  background: linear-gradient(135deg, #8B4513, #DAA520) !important;
+  border-color: #CD853F !important;
+}
+
+.ancient-theme-orange:hover {
+  border-color: #DEB887 !important;
+  background: linear-gradient(135deg, #9E5A29, #E6C229) !important;
+}
+
+.ancient-theme-yellow {
+  background: linear-gradient(135deg, #DAA520, #B8860B) !important;
+  border-color: #FFD700 !important;
+}
+
+.ancient-theme-yellow:hover {
+  border-color: #FFE4B5 !important;
+  background: linear-gradient(135deg, #E6C229, #CA9500) !important;
+}
+
+.ancient-theme-indigo {
+  background: linear-gradient(135deg, #2E4053, #34495E) !important;
+  border-color: #5D6D7E !important;
+}
+
+.ancient-theme-indigo:hover {
+  border-color: #85929E !important;
+  background: linear-gradient(135deg, #34495E, #4A6572) !important;
+}
+
+.ancient-theme-pink {
+  background: linear-gradient(135deg, #C71585, #DB7093) !important;
+  border-color: #FF69B4 !important;
+}
+
+.ancient-theme-pink:hover {
+  border-color: #FFB6C1 !important;
+  background: linear-gradient(135deg, #D32F2F, #E91E63) !important;
+}
+
+.ancient-theme-teal {
+  background: linear-gradient(135deg, #006400, #008080) !important;
+  border-color: #20B2AA !important;
+}
+
+.ancient-theme-teal:hover {
+  border-color: #48D1CC !important;
+  background: linear-gradient(135deg, #00796B, #009688) !important;
+}

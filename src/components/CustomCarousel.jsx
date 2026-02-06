@@ -58,7 +58,7 @@ const CustomCarousel = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // 轮播切换时更新translate
+  // 初始化和轮播切换时更新translate
   useEffect(() => {
     if (carouselRef.current) {
       // 使用requestAnimationFrame优化轮播切换动画
@@ -73,6 +73,47 @@ const CustomCarousel = () => {
       });
     }
   }, [currentIndex]);
+
+  // 组件挂载时初始化translate
+  useEffect(() => {
+    const initTranslate = () => {
+      if (carouselRef.current) {
+        const slideWidth = carouselRef.current.offsetWidth;
+        const newTranslate = -currentIndex * slideWidth;
+        setCurrentTranslate(newTranslate);
+      }
+    };
+
+    // 使用requestAnimationFrame确保DOM渲染完成
+    const animationFrame = requestAnimationFrame(initTranslate);
+
+    // 同时设置一个超时，确保在不同情况下都能初始化
+    const timeout = setTimeout(initTranslate, 100);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      clearTimeout(timeout);
+    };
+  }, [currentIndex]);
+
+  // 窗口大小变化时更新translate
+  useEffect(() => {
+    const handleResize = () => {
+      if (carouselRef.current && !isDragging) {
+        const slideWidth = carouselRef.current.offsetWidth;
+        const newTranslate = -currentIndex * slideWidth;
+        setCurrentTranslate(newTranslate);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentIndex, isDragging]);
+
+  // 获取轮播容器宽度
+  const getSlideWidth = useCallback(() => {
+    return carouselRef.current ? carouselRef.current.offsetWidth : 0;
+  }, []);
 
   // 清理函数
   useEffect(() => {
@@ -97,7 +138,9 @@ const CustomCarousel = () => {
   const handleTouchStart = useCallback((e) => {
     setIsDragging(true);
     startTranslate.current = currentTranslate;
-    setStartX(e.touches[0].clientX);
+    // 支持触摸和鼠标事件
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    setStartX(clientX);
   }, [currentTranslate]);
 
   // 触摸移动
@@ -110,11 +153,12 @@ const CustomCarousel = () => {
     }
 
     animationFrameRef.current = requestAnimationFrame(() => {
-      const currentX = e.touches[0].clientX;
+      // 支持触摸和鼠标事件
+      const currentX = e.touches ? e.touches[0].clientX : e.clientX;
       const newTranslate = startTranslate.current + (currentX - startX);
       setCurrentTranslate(newTranslate);
     });
-  }, [isDragging, startX, startTranslate]);
+  }, [isDragging, startX]);
 
   // 触摸结束
   const handleTouchEnd = useCallback(() => {
@@ -127,20 +171,28 @@ const CustomCarousel = () => {
       animationFrameRef.current = null;
     }
 
-    const threshold = 50;
-    if (Math.abs(currentTranslate) > threshold) {
-      // 向右滑动
-      if (currentTranslate > 0) {
+    const slideWidth = carouselRef.current ? carouselRef.current.offsetWidth : 0;
+    const threshold = slideWidth * 0.3; // 使用容器宽度的30%作为阈值
+    const translateDiff = currentTranslate - startTranslate.current;
+
+    if (Math.abs(translateDiff) > threshold) {
+      // 向右滑动（手指从左向右）
+      if (translateDiff > 0) {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
       }
-      // 向左滑动
+      // 向左滑动（手指从右向左）
       else {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       }
+    } else {
+      // 如果滑动距离小于阈值，回到原始位置
+      if (carouselRef.current) {
+        const slideWidth = carouselRef.current.offsetWidth;
+        const newTranslate = -currentIndex * slideWidth;
+        setCurrentTranslate(newTranslate);
+      }
     }
-    // 重置translate
-    setCurrentTranslate(0);
-  }, [isDragging, currentTranslate, images.length]);
+  }, [isDragging, currentTranslate, currentIndex, images.length]);
 
   // 点击指示器
   const handleIndicatorClick = useCallback((index) => {
@@ -148,34 +200,39 @@ const CustomCarousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden bg-gray-100">
+    <div className="relative w-full max-w-7xl mx-auto my-4">
       {/* 轮播容器 */}
       <div
         ref={carouselRef}
-        className="relative overflow-hidden"
+        className="relative w-full overflow-hidden rounded-xl shadow-md"
+        style={{ height: '250px' }} // 调整高度
       >
         {/* 轮播轨道 */}
         <div
           className="flex transition-transform duration-500 ease-out"
           style={{
-            transform: `translateX(${isDragging ? currentTranslate : -currentIndex * 100}%)`,
-            willChange: 'transform'
+            transform: `translateX(${currentTranslate}px)`,
+            willChange: 'transform',
+            height: '100%'
           }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onMouseDown={handleTouchStart}
+          onMouseMove={handleTouchMove}
+          onMouseUp={handleTouchEnd}
+          onMouseLeave={handleTouchEnd}
         >
           {/* 轮播图片 */}
           {images.map((image, index) => (
             <div
               key={index}
               ref={(el) => (slideRefs.current[index] = el)}
-              className="flex-shrink-0 w-full relative"
-              style={{ paddingBottom: '56.25%' }} // 16:9 比例
+              className="flex-shrink-0 w-full h-full relative"
             >
               {/* 加载占位图 */}
               <div
-                className={`absolute inset-0 w-full h-full transition-opacity duration-300 bg-[#F5F2EB] flex items-center justify-center ${imageLoadStatus[index] === 'loaded' ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                className={`absolute inset-0 w-full h-full transition-opacity duration-300 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center ${imageLoadStatus[index] === 'loaded' ? 'opacity-0 pointer-events-none' : 'opacity-100'
                   }`}
               >
                 {/* 加载动画 */}
@@ -202,7 +259,7 @@ const CustomCarousel = () => {
         {images.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ease-out ${index === currentIndex ? 'bg-[#2C4B5E] w-6' : 'bg-white bg-opacity-50'
+            className={`w-2 h-2 rounded-full transition-all duration-300 ease-out ${index === currentIndex ? 'bg-[#2C4B5E] w-6' : 'bg-white bg-opacity-60'
               }`}
             onClick={() => handleIndicatorClick(index)}
             aria-label={`Go to slide ${index + 1}`}

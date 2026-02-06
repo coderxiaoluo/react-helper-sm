@@ -1,75 +1,86 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Sword, Play, Pause, Music } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sword, Play, Pause, Music, Loader2 } from 'lucide-react';
+import musicPlayer from '../services/MusicPlayer';
 
 const Header = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 组件挂载时创建音频元素
-    audioRef.current = new Audio('/music/明月天涯 - 五音Jw.mp3');
-    audioRef.current.loop = true;
+    // 加载字体
+    const loadFonts = () => {
+      // 瘦金体字体
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap';
+      document.head.appendChild(link);
 
-    // 尝试自动播放音乐
-    const playMusic = async () => {
-      try {
-        await audioRef.current.play();
-        setIsPlaying(true);
-      } catch (error) {
-        console.log('自动播放被阻止，需要用户交互后才能播放音乐:', error);
-      }
+      // 行书字体
+      const link2 = document.createElement('link');
+      link2.rel = 'stylesheet';
+      link2.href = 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&display=swap';
+      document.head.appendChild(link2);
     };
 
-    playMusic();
+    loadFonts();
 
-    // 组件卸载时清理音频元素
+    // 初始化音乐播放器
+    musicPlayer.init();
+
+    // 同步播放状态
+    setIsPlaying(musicPlayer.getIsPlaying());
+    setLoading(musicPlayer.getLoading());
+
+    // 定期同步状态（避免页面跳转后状态不同步）
+    const statusInterval = setInterval(() => {
+      setIsPlaying(musicPlayer.getIsPlaying());
+      setLoading(musicPlayer.getLoading());
+    }, 100);
+
+    // 组件卸载时清理
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
+      clearInterval(statusInterval);
     };
   }, []);
 
   const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
+    musicPlayer.togglePlay();
+    setIsPlaying(musicPlayer.getIsPlaying());
   };
 
   return (
-    <header className="py-3 rounded-lg mb-2 relative overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/bgcimage/bj2.jpg')" }}>
-      {/* 半透明覆盖层，淡化背景 */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+    <header className="py-6 rounded-2xl mb-4 relative overflow-hidden shadow-lg shadow-black/40 bg-[#1A1A2E]">
+      {/* 背景 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#16213E] to-[#0F3460] opacity-90"></div>
 
       {/* 内容 */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-[396px] mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center justify-center text-center">
           {/* 标题 */}
           <div className="flex items-center justify-center space-x-3 mb-3">
-            <Sword className="h-8 w-8 text-white drop-shadow-lg" />
-            <h1 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
+            <Sword className="h-10 w-6 text-[#E94560]" />
+            <h1 className="text-2xl font-bold text-white font-wuxia">
               逆水寒手游竞技爱好者
             </h1>
           </div>
 
           {/* 副标题和音乐控制 */}
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
-            <p className="text-base text-white opacity-90 drop-shadow">
+          <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-4">
+            <p className="text-base text-[#A0AEC0]" style={{ fontFamily: '"Noto Serif SC", serif' }}>
               武林盟主.碎梦 | 所有江湖偶遇,都是宿命相逢
             </p>
             <button
               onClick={togglePlay}
-              className="flex items-center space-x-1 px-3 py-1 bg-white bg-opacity-20 backdrop-blur-sm rounded-full hover:bg-opacity-30 transition-all duration-300 text-white"
+              className="flex items-center space-x-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-all duration-300 text-white"
               aria-label={isPlaying ? "暂停音乐" : "播放音乐"}
+              disabled={loading}
             >
-              <Music className="h-3 w-3" />
-              {isPlaying ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
+              <Music className="h-4 w-4" />
+              {loading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />
+              )}
             </button>
           </div>
         </div>
